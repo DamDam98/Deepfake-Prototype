@@ -33,68 +33,18 @@
     - **IMPORTANT**: for wav2lip however, the result will not populate in the assets folder it will be in Wav2Lip/results
 
 
-## Voice Gen
-
-
-
-
-5. Install packages
-
-First run `npm install yarn -g` to install yarn globally (if you haven't already).
-
-Then run:
-
-```
-yarn install
-```
-After installation, you should now see a `node_modules` folder.
-
-3. Set up your `.env` file
-
-- Copy `.env.example` into `.env`
-  Your `.env` file should look like this:
-
-```
-OPENAI_API_KEY=
-```
-
-- Visit [openai](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key) to retrieve API keys and insert into your `.env` file.
-
-## Run the app
-
-run the app `npm run dev` to launch the local dev environment, and then type a question in the chat interface.
-
-Note: ensure you are on node 18+
-
-## Deploying with Vercel
-
-1. create a vercel account
-2. connect your github account (ideally, give it access to all your repos)
-3. click add new, then choose project
-4. choose this repo
-5. paste the .env from the repo into the environment variables section on the initial setup page
-6. hit deploy and watch the magic happen
-note: anytime you push a change to the main branch, this will kick off a new build and deploy live to the website
-
-## Editing the Prompts
-
-the prompts live in `utils/makechain.ts` you'll want to change the `baseCallPrompt` string to update the chatbot call.
-
-**General errors**
-
-- there is a known issue where after a few interactions with the chatbot it begins to over complete, meaning it will begin guessing the users responses and auto completing the remainder of the discussion for some reason
-- on vercel, the chat api takes too long meaning it times out. To increase the timeout limit past 10 seconds you'll need to convert your account to paid and configure the vercel.json file as so.
-
-```
-{
-  "functions": {
-    "api/test.js": {
-      "maxDuration": 60
-    }
-  }
-}
-```
-
-## Credit
-
-Frontend of this repo is inspired by [langchain-chat-nextjs](https://github.com/zahidkhawaja/langchain-chat-nextjs)
+## Voice Clone Usage
+1. open `voice_clone.py` script
+2. run `pip install elevenlabs` to download the library
+3. insert eleven labs api key (create one on elevenlabs.io if you need to)
+4. browse available voices by uncommenting this line (create a new voice on eleven labs web client if you want)
+     ```
+     # for voice in voices():
+     #     print(voice)
+     ```
+5. pick a voice from the list with this line (use the print to make sure it's the right voice)
+     ```
+     jacques = voices()[-1]
+      # print(jacques)
+     ```
+6. run the script locally by calling `python voice_clone.py`
