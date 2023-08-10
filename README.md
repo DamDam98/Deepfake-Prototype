@@ -48,3 +48,7 @@
       # print(jacques)
      ```
 6. run the script locally by calling `python voice_clone.py`
+
+## Next Steps
+- try down up ai resolution enhancement to make clarity better and model run more efficiently
+- search for good up down models and run in colab as well
